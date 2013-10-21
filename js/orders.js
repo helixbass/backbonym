@@ -1,13 +1,7 @@
 (function() {
-  var API_ROOT, Collection, ExpandedOrderView, Model, Order, OrderRouter, OrderView, Orders, OrdersView, Router, View, history, order, order_view, ordersView, router, _path;
+  var Collection, ExpandedOrderView, Model, Order, OrderRouter, OrderView, Orders, OrdersView, Router, View, history, order, order_view, ordersView, router;
 
   Model = Backbone.Model, Collection = Backbone.Collection, Router = Backbone.Router, View = Backbone.View, history = Backbone.history;
-
-  API_ROOT = 'http://localhost:5000';
-
-  _path = function(path) {
-    return API_ROOT + path;
-  };
 
   Order = Model.extend({
     idAttribute: '_id',
@@ -22,7 +16,7 @@
 
   Orders = Collection.extend({
     model: Order,
-    url: _path('/orders'),
+    url: '/orders',
     parse: function(data) {
       return data.orders;
     }

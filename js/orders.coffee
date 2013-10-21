@@ -4,10 +4,6 @@
   View,
   history } = Backbone
 
-API_ROOT = 'http://localhost:5000'
-_path = ( path ) ->
-         API_ROOT + path
-
 Order = Model
          .extend
                  idAttribute:
@@ -25,7 +21,7 @@ Orders = Collection
                   model:
                    Order
                   url:
-                   _path '/orders'
+                   '/orders'
                   parse:
                    ( data ) ->
                     data
