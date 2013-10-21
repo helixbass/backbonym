@@ -1,5 +1,5 @@
 (function() {
-  var Collection, ExpandedOrderView, Model, Order, OrderRouter, OrderView, Orders, OrdersView, Router, View, history, order, order_view, ordersView, router;
+  var Collection, ExpandedOrderView, Model, Order, OrderView, Orders, OrdersView, Router, View, history, ordersView;
 
   Model = Backbone.Model, Collection = Backbone.Collection, Router = Backbone.Router, View = Backbone.View, history = Backbone.history;
 
@@ -10,10 +10,6 @@
     }
   });
 
-  order = new Order({
-    status: 'pending'
-  });
-
   Orders = Collection.extend({
     model: Order,
     url: '/orders',
@@ -21,19 +17,6 @@
       return data.orders;
     }
   });
-
-  OrderRouter = Router.extend({
-    routes: {
-      '/orders/:id': 'getOrder'
-    },
-    getOrder: function(id) {
-      return new OrderView();
-    }
-  });
-
-  router = new OrderRouter();
-
-  history.start();
 
   _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g
@@ -92,10 +75,6 @@
         model: this.model
       });
     }
-  });
-
-  order_view = new OrderView({
-    model: order
   });
 
   OrdersView = View.extend({

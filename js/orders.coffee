@@ -12,10 +12,6 @@ Order = Model
                   ->
                    '/orders/' + @id + '/status'
 
-order = new Order
-                  status:
-                   'pending'
-
 Orders = Collection
           .extend
                   model:
@@ -27,18 +23,18 @@ Orders = Collection
                     data
                      .orders
 
-OrderRouter = Router
-               .extend
-                       routes:
-                        '/orders/:id':
-                         'getOrder'
-                       getOrder:
-                        ( id ) ->
-                         new OrderView()
+# OrderRouter = Router
+#                .extend
+#                        routes:
+#                         '/orders/:id':
+#                          'getOrder'
+#                        getOrder:
+#                         ( id ) ->
+#                          new OrderView()
 
-router = new OrderRouter()
-history
- .start()
+# router = new OrderRouter()
+# history
+#  .start()
 
 _.templateSettings =
   interpolate:
@@ -123,10 +119,6 @@ OrderView = View
                        new ExpandedOrderView
                                              model:
                                               @model
-
-order_view = new OrderView
-                           model:
-                            order
 
 OrdersView = View
               .extend
