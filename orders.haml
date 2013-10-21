@@ -1,0 +1,56 @@
+!!! 5
+%html
+  %head
+    %link{ href: 'css/orders.css',
+           rel: 'stylesheet',
+           type: 'text/css' }
+    %script{ src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' }
+    %script{ src: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js' }
+    %script{ src: 'js/backbone-min.js' }
+  %body
+    %ul#orders
+    #expanded
+    %script#tpl-order{ type: 'text/template' }
+      %h4
+        {{ _id }}
+      .status
+        {{ status }}
+    %script#tpl-expanded{ type: 'text/template' }
+      %h3
+        Order \#{{ _id }}
+      .status
+        %span
+          {{ status }}
+        %select.edit
+          %option pending
+          %option sentToLab
+          %option shippedFromLab
+          %option receivedFromLab
+          %option shipped
+          %option notifiedOfShipment
+      %section
+        %h4
+          Billing
+        %ul
+          %li
+            {{ billing.name }}
+          %li
+            {{ billing.address.street }}
+          %li
+            {{ billing.address.city }}, {{ billing.address.state }}
+            {{ billing.address.zip }}
+      %section
+        %h4
+          Shipping
+        %ul
+          %li
+            {{ shipping.name }}
+          %li
+            {{ shipping.address.street }}
+          %li
+            {{ shipping.address.city }}, {{ shipping.address.state }}
+            {{ shipping.address.zip }}
+    %script{ src: 'js/orders.js' }
+    :coffee
+      document
+       .write '<script src=\"http://localhost:35729/livereload.js?snipver=1\"><\/script>'

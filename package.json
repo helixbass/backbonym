@@ -1,0 +1,12 @@
+{
+  "name": "backbonym",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-regarde": "~0.1.1",
+    "grunt-contrib-coffee": "~0.6.6",
+    "grunt-contrib-compass": "~0.2.0",
+    "grunt-contrib-haml": "~0.1.1"
+  }
+}

@@ -1,0 +1,64 @@
+@import compass/css3
+@import spex
+@import spex/reset
+
+$bg: #cce
+$off: darken( $bg, 20% )
+$white: #fff
+$hi: #ff6
+
+html
+    :background $bg
+    :font
+        :family Helvetica, Arial, sans-serif
+        :size   14px
+    :line
+        :height 1.18
+
+#orders
+    :background $white
+    :float      left
+    +border-radius( 7px )
+    :margin     10px 20px
+    :padding    8px 0
+    li
+        +pointer
+        :padding    5px 10px
+        &:hover
+            :background $hi
+    h4
+        :font
+            :size   16px
+        +inline
+    .status
+        :font
+            :size   13px
+            :style  italic
+        :padding    0 0 0 4px
+        +inline
+
+#expanded
+    +hide
+    :background $white
+    :float      left
+    +border-radius( 7px )
+    :margin     10px 20px
+    :padding    8px 10px
+    h3
+        :font
+            :size   18px
+        +italic
+        :margin     .1em 0 .4em
+    .status
+        +pointer
+    .edit
+        +hide
+    section
+        :margin     8px 0
+    h4
+        :letter-spacing .3em
+        :font
+            :size       13px
+        +up
+        :margin         .2em 0
+        :color          $off
